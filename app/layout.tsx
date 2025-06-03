@@ -7,6 +7,8 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
@@ -38,7 +40,9 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          GeistSans.className,
+          GeistMono.className
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
