@@ -72,7 +72,7 @@ const config = {
             opacity: "1",
           },
           "100%": {
-            transform: "rotate(315deg) translateX(-600px)",
+            transform: "rotate(315deg) translateX(-700px)",
             opacity: "0",
           },
         },
