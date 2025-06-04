@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { Meteors } from "./magicui/meteors";
 import { MaskContainer } from "./ui/svg-mask-effect";
+import { motion } from "motion/react";
 
 export default function Hero() {
   return (
@@ -10,14 +12,41 @@ export default function Hero() {
         <div className="font-geist-mono absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit">
           <MaskContainer
             revealText={
-              <span className="pointer-events-none font-geist-mono mx-auto flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
-                <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text">
+              <motion.span
+                className="pointer-events-none font-geist-mono mx-auto flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent"
+                initial={{ "--x": "-100%" } as any}
+                animate={{ "--x": "125%" } as any}
+                transition={{
+                  delay: 0.2,
+                  duration: 3,
+                  ease: "easeInOut",
+                  repeat: 2,
+                  repeatDelay: 0.5,
+                  repeatType: "loop",
+                }}
+              >
+                {/* Base text with gradient */}
+                <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text text-transparent">
                   <span className="text-[20rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text">
                     S
                   </span>
                   afira
                 </span>
-              </span>
+
+                {/* Outline text that sweeps across */}
+                <span
+                  className="absolute inset-0 font-outline text-transparent"
+                  style={{
+                    maskImage:
+                      "linear-gradient(90deg, transparent 0%, transparent calc(var(--x) - 5%), white calc(var(--x) - 10%), white calc(var(--x) + 10%), transparent calc(var(--x) + 5%), transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(90deg, transparent 0%, transparent calc(var(--x) - 5%), white calc(var(--x) - 10%), white calc(var(--x) + 10%), transparent calc(var(--x) + 5%), transparent 100%)",
+                  }}
+                >
+                  <span className="text-[20rem]">S</span>
+                  afira
+                </span>
+              </motion.span>
             }
             className="w-full h-full overflow-visible"
           >
