@@ -4,9 +4,9 @@ import { MaskContainer } from "./ui/svg-mask-effect";
 
 export default function Hero() {
   return (
-    <div className="absolute top-0 right-0 w-full h-full overflow-x-hidden">
+    <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
       <Meteors />
-      <div className="relative h-screen w-full overflow-x-hidden">
+      <div className="relative h-screen w-full overflow-hidden">
         <div className="font-geist-mono absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit">
           <MaskContainer
             revealText={
