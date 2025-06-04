@@ -1,32 +1,37 @@
 import React from "react";
 import { Meteors } from "./magicui/meteors";
+import { MaskContainer } from "./ui/svg-mask-effect";
 
 export default function Hero() {
   return (
     <div className="absolute top-0 right-0 w-full h-full overflow-x-hidden">
       <Meteors />
-      <div className="relative h-screen w-full overflow-hidden md:overflow-x-hidden">
-        <div className="font-geist-mono absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit pointer-events-none whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
-          <span className="mx-auto bg-gradient-to-b from-black to-gray-300/80 bg-clip-text flex flex-col">
-            <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text">
-              <span className="font-outline text-[20rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text">
-                S
+      <div className="relative h-screen w-full overflow-x-hidden">
+        <div className="font-geist-mono absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit">
+          <MaskContainer
+            revealText={
+              <span className="pointer-events-none font-geist-mono mx-auto flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
+                <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text">
+                  <span className="text-[20rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text">
+                    S
+                  </span>
+                  afira
+                </span>
               </span>
-              afira
+            }
+            className="w-full h-full overflow-visible"
+          >
+            <span className="pointer-events-none font-outline font-geist-mono mx-auto  flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
+              <span className="">
+                <span className="font-outline text-[20rem] ">S</span>
+                afira
+              </span>
             </span>
-
-            {/* <span className="bg-gradient-to-b from-black to-gray-300/80 bg-clip-text">
-              <span className="text-[14rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text">
-                S
-              </span>
-              tudio
-            </span>*/}
-          </span>
-          {/* <span className="font-outline  ">Safira Studio</span> */}
+          </MaskContainer>
         </div>
 
         <div
-          className="absolute -inset-y-[25%] -right-24 flex w-[100vw] flex-col xl:-right-6 xl:w-[1200px]"
+          className="absolute -inset-y-[25%] -right-24 flex w-[100vw] flex-col xl:-right-6 xl:w-[1200px] pointer-events-none"
           style={{
             maskImage:
               "linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255))",
