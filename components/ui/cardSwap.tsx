@@ -126,22 +126,48 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const lastScrollY = useRef(0);
   const scrollAccumulator = useRef(0);
   const isAnimating = useRef(false);
+  const [scrollOffset, setScrollOffset] = useState(0);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      // Set section height to ensure enough scrollable space
+      // Each card removal requires some scroll distance
+      const minHeight =
+        window.innerHeight + activeCards.length * scrollSensitivity;
+      sectionRef.current.style.minHeight = `${minHeight}px`;
+    }
+  }, [activeCards.length, scrollSensitivity]);
 
   useEffect(() => {
     const total = activeCards.length;
     activeCards.forEach((cardIndex, stackPosition) => {
       const ref = refs[cardIndex];
       if (ref.current && !removedCards.has(cardIndex)) {
-        placeNow(
-          ref.current,
-          makeSlot(stackPosition, cardDistance, verticalDistance, total),
-          skewAmount
+        const slot = makeSlot(
+          stackPosition,
+          cardDistance,
+          verticalDistance,
+          total
         );
+        // Apply subtle parallax effect based on scroll offset
+        const parallaxScale = 1 - stackPosition * 0.02; // Scale down slightly for depth
+        const parallaxY = slot.y + scrollOffset * 0.1 * (stackPosition + 1); // Subtle Y movement
+        gsap.set(ref.current, {
+          ...slot,
+          xPercent: -50,
+          yPercent: -50,
+          skewY: skewAmount,
+          transformOrigin: "center center",
+          zIndex: slot.zIndex,
+          scale: parallaxScale,
+          y: parallaxY,
+          force3D: true,
+        });
       }
     });
 
     const removeCard = () => {
-      if (activeCards.length === 0 || isAnimating.current) return;
+      if (activeCards.length === 1 || isAnimating.current) return;
 
       isAnimating.current = true;
       const frontCardIndex = activeCards[0];
@@ -306,7 +332,9 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
-
+      setScrollOffset((prev) =>
+        Math.max(-100, Math.min(100, prev + scrollDelta * 0.1))
+      );
       scrollAccumulator.current += Math.abs(scrollDelta);
 
       if (scrollAccumulator.current >= scrollSensitivity) {
@@ -321,6 +349,16 @@ const CardSwap: React.FC<CardSwapProps> = ({
       }
 
       lastScrollY.current = currentScrollY;
+      if (activeCards.length > 1 && sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const sectionBottom = rect.bottom;
+        const windowHeight = window.innerHeight;
+
+        if (sectionBottom <= windowHeight && scrollDelta > 0) {
+          // Keep section in view by resetting scroll position
+          window.scrollTo(0, currentScrollY - (windowHeight - sectionBottom));
+        }
+      }
     };
 
     const checkSectionVisibility = () => {
@@ -374,7 +412,10 @@ const CardSwap: React.FC<CardSwapProps> = ({
   );
 
   return (
-    <div ref={sectionRef} className="relative w-full h-full">
+    <div
+      ref={sectionRef}
+      className="sticky top-0 min-h-screen flex items-center justify-center"
+    >
       <div
         ref={container}
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 perspective-[900px] overflow-visible max-[768px]:scale-[0.75] max-[480px]:scale-[0.55] z-10"
@@ -392,7 +433,13 @@ const CardSwap: React.FC<CardSwapProps> = ({
               {activeCards.length}/{childArr.length}
             </div>
             <div className="text-xs opacity-70 mt-1">
-              {activeCards.length > 0 ? "Scroll ↓ to remove" : "All removed!"}
+              <div className="text-xs opacity-70 mt-1">
+                {activeCards.length > 1
+                  ? "Scroll ↓ to remove"
+                  : activeCards.length === 1
+                    ? "Last card! Scroll to continue"
+                    : "All removed!"}
+              </div>
             </div>
             {removedCards.size > 0 && activeCards.length > 0 && (
               <div className="text-xs opacity-50 mt-1">Scroll ↑ to restore</div>
