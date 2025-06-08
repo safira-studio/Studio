@@ -216,7 +216,9 @@ const CardSwap: React.FC<CardSwapProps> = ({
       tl.call(() => {
         // Remove the card from active cards and add to removed set
         setActiveCards(remainingCards);
-        setRemovedCards((prev) => new Set([...prev, frontCardIndex]));
+        setRemovedCards(
+          (prev) => new Set([...Array.from(prev), frontCardIndex])
+        );
 
         // Hide the removed card completely
         gsap.set(elFront, { display: "none" });

@@ -51,9 +51,10 @@ const Card = ({
           <div className={styles.description}>
             <p>{description}</p>
             <span>
-              <a href={url} target="_blank">
+              <a href={url} target="_blank" rel="noreferrer">
                 See more
               </a>
+
               <svg
                 width="22"
                 height="12"

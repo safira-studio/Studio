@@ -19,7 +19,7 @@ export default function CardSwapDemo() {
               </div>
               <h3 className="text-2xl font-bold mb-3">Innovation</h3>
               <p className="text-blue-100 leading-relaxed">
-                Cutting-edge solutions that push the boundaries of what's
+                Cutting-edge solutions that push the boundaries of what&aposs
                 possible
               </p>
             </div>
