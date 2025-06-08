@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Lenis from "lenis";
 import Card from "@/components/card";
 import { ProjectsDATA } from "@/components/data";
+import CardSwapDemo from "@/components/cardSwapDemo";
 
 export default function Home() {
   const container = useRef(null);
@@ -38,7 +39,6 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-
       {/* Section 3: Scrollable Project Cards */}
       <section className="w-full px-4">
         {ProjectsDATA.map((project, i) => {
@@ -55,6 +55,7 @@ export default function Home() {
           );
         })}
       </section>
+      <CardSwapDemo />
     </main>
   );
 }
