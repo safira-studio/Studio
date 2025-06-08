@@ -1,16 +1,60 @@
 "use client";
+import { useEffect, useRef } from "react";
+import { useScroll } from "framer-motion";
+
 import { BentoDemo } from "@/components/BentoDemo";
-import CardSwapDemo from "@/components/cardSwapDemo";
 import Hero from "@/components/Hero";
+import Lenis from "lenis";
+import Card from "@/components/card";
+import { ProjectsDATA } from "@/components/data";
 
 export default function Home() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
-    <section className="flex flex-col items-center justify-center gap-4 ">
-      <div className="h-screen">
+    <main
+      ref={container}
+      className="flex flex-col items-center justify-center gap-4"
+    >
+      {/* Section 1: Hero full screen */}
+      <section className="h-screen w-full">
         <Hero />
-      </div>
-      <CardSwapDemo />
-      <BentoDemo />
-    </section>
+      </section>
+
+      {/* Section 2: Bento cards */}
+      <section className="w-full">
+        <BentoDemo />
+      </section>
+
+      {/* Section 3: Scrollable Project Cards */}
+      <section className="w-full px-4">
+        {ProjectsDATA.map((project, i) => {
+          const targetScale = 1 - (ProjectsDATA.length - i) * 0.05;
+          return (
+            <Card
+              key={`p_${i}`}
+              i={i}
+              {...project}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+            />
+          );
+        })}
+      </section>
+    </main>
   );
 }
