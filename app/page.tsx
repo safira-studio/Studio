@@ -14,9 +14,7 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-      <div className="overflow-clip w-full  ">
-        <CardSwapDemo />
-      </div>
+      <CardSwapDemo />
     </main>
   );
 }
