@@ -21,18 +21,27 @@ export default function CardSwapDemo() {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <section className="w-full px-4" ref={container}>
-      {ProjectsDATA.map((project, i) => {
-        return (
-          <Card
-            key={`p_${i}`}
-            i={i}
-            {...project}
-            progress={scrollYProgress}
-            totalCards={ProjectsDATA.length}
-          />
-        );
-      })}
+    <section
+      className="w-full border border-teal-700 rounded-3xl flex justify-between px-10"
+      ref={container}
+    >
+      <div className="w-1/2">
+        <h1 className="text-4xl">Card stacks have never looked so good</h1>
+        <p>Just look at it go!</p>
+      </div>
+      <div>
+        {ProjectsDATA.map((project, i) => {
+          return (
+            <Card
+              key={`p_${i}`}
+              i={i}
+              {...project}
+              progress={scrollYProgress}
+              totalCards={ProjectsDATA.length}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 }
