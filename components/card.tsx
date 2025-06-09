@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 interface CardProps {
   i: number;
@@ -80,13 +81,12 @@ const Card = ({
                   </p>
                 </div>
                 <div className="flex items-center gap-2 mt-6">
-                  <a
-                    href={url}
-                    target="_blank"
+                  <Link
+                    href={url ?? "/"}
                     className="text-sm text-green-400 underline hover:text-green-500 transition"
                   >
                     See more
-                  </a>
+                  </Link>
                   <svg
                     width="20"
                     height="10"
