@@ -47,7 +47,7 @@ const Card = ({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 z-10"
+      className="h-screen border border-red-500 flex items-center justify-center sticky top-0 z-10"
     >
       <motion.div
         style={{
@@ -57,7 +57,7 @@ const Card = ({
           skewY: 6,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-[700px] max-w-[90vw] h-[500px] rounded-3xl overflow-hidden shadow-2xl"
+        className="relative w-[500px] h-[350px] rounded-3xl overflow-hidden shadow-2xl"
       >
         {/* Gradient Border */}
         <div
