@@ -23,15 +23,13 @@ export default function CardSwapDemo() {
   return (
     <section className="w-full px-4" ref={container}>
       {ProjectsDATA.map((project, i) => {
-        const targetScale = 1 - (ProjectsDATA.length - i) * 0.05;
         return (
           <Card
             key={`p_${i}`}
             i={i}
             {...project}
             progress={scrollYProgress}
-            range={[i / ProjectsDATA.length, 1]}
-            targetScale={targetScale}
+            totalCards={ProjectsDATA.length}
           />
         );
       })}

@@ -14,8 +14,9 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-
-      <CardSwapDemo />
+      <div>
+        <CardSwapDemo />
+      </div>
     </main>
   );
 }

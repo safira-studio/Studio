@@ -11,10 +11,9 @@ interface CardProps {
   url?: string;
   color: string;
   progress: any;
-  range: [number, number];
-  targetScale: number;
   tag?: string;
   icon?: React.ReactNode;
+  totalCards: number;
 }
 
 const Card = ({
@@ -25,37 +24,35 @@ const Card = ({
   url,
   color,
   progress,
-  range,
-  targetScale,
   tag = "Customizable",
   icon,
+  totalCards,
 }: CardProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
+  const range = [i / totalCards, 1];
+  const targetScale = 1 - (totalCards - i) * 0.03;
+  const finalTop = `${(i - (totalCards - 1)) * 50}px`;
+  const finalLeft = `${(totalCards - 1 - i) * 80}px`;
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
-
-  // Calculate initial top and right values
-  const initialTop = `calc(-5vh + ${i * 50}px)`;
-  const initialLeft = `0px`;
-
-  // const top = useTransform(progress, range, [initialTop, "-50px"]);
-  const left = useTransform(progress, range, [initialLeft, "500px"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+  const top = useTransform(progress, range, ["0px", finalTop]);
+  const left = useTransform(progress, range, ["0px", finalLeft]);
 
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 z-10 border border-red-500"
+      className="h-screen flex items-center justify-center sticky top-0 z-10"
     >
       <motion.div
         style={{
           backgroundColor: color,
           scale,
-          top: initialTop,
+          top,
           left,
           skewY: 6,
           transformStyle: "preserve-3d",
