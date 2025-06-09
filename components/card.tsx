@@ -43,70 +43,6 @@ const Card = ({
   const top = useTransform(progress, range, ["0px", finalTop]);
   const left = useTransform(progress, range, ["0px", finalLeft]);
 
-  // Define gradient border colors based on card index
-  const getBorderGradient = (index: number) => {
-    const gradients = [
-      "from-blue-500 via-purple-500 to-green-400", // Reliable
-      "from-green-400 via-blue-500 to-purple-500", // Smooth
-      "from-purple-500 via-green-400 to-blue-500", // Customizable
-    ];
-    return gradients[index % gradients.length];
-  };
-
-  const getHeaderIcon = (index: number) => {
-    const icons = [
-      <svg
-        key="reliable"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        className="text-blue-400"
-      >
-        <path
-          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>,
-      <svg
-        key="smooth"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        className="text-green-400"
-      >
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-        <circle cx="12" cy="12" r="3" fill="currentColor" />
-      </svg>,
-      <svg
-        key="customizable"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        className="text-purple-400"
-      >
-        <path
-          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>,
-    ];
-    return icons[index % icons.length];
-  };
-
-  const getTagText = (index: number) => {
-    const tags = ["Reliable", "Smooth", "Customizable"];
-    return tags[index % tags.length];
-  };
-
   return (
     <div
       ref={container}
@@ -189,3 +125,67 @@ const Card = ({
 };
 
 export default Card;
+
+// Define gradient border colors based on card index
+const getBorderGradient = (index: number) => {
+  const gradients = [
+    "from-blue-500 via-purple-500 to-green-400", // Reliable
+    "from-green-400 via-blue-500 to-purple-500", // Smooth
+    "from-purple-500 via-green-400 to-blue-500", // Customizable
+  ];
+  return gradients[index % gradients.length];
+};
+
+const getHeaderIcon = (index: number) => {
+  const icons = [
+    <svg
+      key="reliable"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="text-blue-400"
+    >
+      <path
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+    <svg
+      key="smooth"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="text-green-400"
+    >
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="3" fill="currentColor" />
+    </svg>,
+    <svg
+      key="customizable"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="text-purple-400"
+    >
+      <path
+        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>,
+  ];
+  return icons[index % icons.length];
+};
+
+const getTagText = (index: number) => {
+  const tags = ["Reliable", "Smooth", "Customizable"];
+  return tags[index % tags.length];
+};
