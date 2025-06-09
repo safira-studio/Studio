@@ -60,7 +60,7 @@ const Card = ({
           skewY: 6,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-[700px] max-w-[90vw] h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-neutral-800 border-green-500"
+        className="relative w-[700px] max-w-[90vw] h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-neutral-800"
       >
         {/* Top Tab/Header */}
         <div className="flex items-center gap-2 px-5 py-3 bg-black text-white text-sm border-b border-neutral-800">
