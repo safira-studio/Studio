@@ -39,6 +39,13 @@ const Card = ({
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
+  // Calculate initial top and right values
+  const initialTop = `calc(-5vh + ${i * 50}px)`;
+  const initialLeft = `0px`;
+
+  // const top = useTransform(progress, range, [initialTop, "-50px"]);
+  const left = useTransform(progress, range, [initialLeft, "500px"]);
+
   return (
     <div
       ref={container}
@@ -48,12 +55,12 @@ const Card = ({
         style={{
           backgroundColor: color,
           scale,
-          top: `calc(-5vh + ${i * 50}px)`,
-          right: `calc(5vh + ${i * 80}px)`,
+          top: initialTop,
+          left,
           skewY: 6,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-[700px] max-w-[90vw] h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-neutral-800- border-green-500"
+        className="relative w-[700px] max-w-[90vw] h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-neutral-800 border-green-500"
       >
         {/* Top Tab/Header */}
         <div className="flex items-center gap-2 px-5 py-3 bg-black text-white text-sm border-b border-neutral-800">
