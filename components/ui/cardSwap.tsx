@@ -37,7 +37,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       {...rest}
       className={`absolute top-1/2 left-1/2 rounded-xl border border-white bg-black [transform-style:preserve-3d] [will-change:transform] [backface-visibility:hidden] ${customClass ?? ""} ${rest.className ?? ""}`.trim()}
     />
-  )
+  ),
 );
 Card.displayName = "Card";
 
@@ -53,7 +53,7 @@ const makeSlot = (
   i: number,
   distX: number,
   distY: number,
-  total: number
+  total: number,
 ): Slot => ({
   x: i * distX,
   y: -i * distY,
@@ -107,15 +107,15 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
   const childArr = useMemo(
     () => Children.toArray(children) as ReactElement<CardProps>[],
-    [children]
+    [children],
   );
   const refs = useMemo<CardRef[]>(
     () => childArr.map(() => React.createRef<HTMLDivElement>()),
-    [childArr.length]
+    [childArr.length],
   );
 
   const [activeCards, setActiveCards] = useState<number[]>(
-    Array.from({ length: childArr.length }, (_, i) => i)
+    Array.from({ length: childArr.length }, (_, i) => i),
   );
   const [removedCards, setRemovedCards] = useState<Set<number>>(new Set());
   const [isInCardSection, setIsInCardSection] = useState(false);
@@ -147,7 +147,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
           stackPosition,
           cardDistance,
           verticalDistance,
-          total
+          total,
         );
         // Apply subtle parallax effect based on scroll offset
         const parallaxScale = 1 - stackPosition * 0.02; // Scale down slightly for depth
@@ -196,7 +196,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
             i,
             cardDistance,
             verticalDistance,
-            remainingCards.length
+            remainingCards.length,
           );
           tl.set(el, { zIndex: slot.zIndex }, "promote");
           tl.to(
@@ -208,7 +208,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
               duration: config.durMove,
               ease: config.ease,
             },
-            `promote+=${i * 0.1}`
+            `promote+=${i * 0.1}`,
           );
         });
       }
@@ -217,7 +217,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
         // Remove the card from active cards and add to removed set
         setActiveCards(remainingCards);
         setRemovedCards(
-          (prev) => new Set([...Array.from(prev), frontCardIndex])
+          (prev) => new Set([...Array.from(prev), frontCardIndex]),
         );
 
         // Hide the removed card completely
@@ -254,7 +254,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
             i + 1,
             cardDistance,
             verticalDistance,
-            activeCards.length + 1
+            activeCards.length + 1,
           );
           tl.set(el, { zIndex: slot.zIndex }, "demote");
           tl.to(
@@ -266,7 +266,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
               duration: config.durMove,
               ease: config.ease,
             },
-            `demote+=${i * 0.1}`
+            `demote+=${i * 0.1}`,
           );
         });
       }
@@ -276,13 +276,13 @@ const CardSwap: React.FC<CardSwapProps> = ({
         0,
         cardDistance,
         verticalDistance,
-        activeCards.length + 1
+        activeCards.length + 1,
       );
       tl.addLabel(
         "restore",
         activeCards.length > 0
           ? `demote+=${config.durMove * config.returnDelay}`
-          : "0"
+          : "0",
       );
 
       tl.call(
@@ -297,7 +297,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
           });
         },
         undefined,
-        "restore"
+        "restore",
       );
 
       tl.set(elRestore, { x: frontSlot.x, z: frontSlot.z }, "restore");
@@ -311,7 +311,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
           duration: config.durReturn,
           ease: config.ease,
         },
-        "restore"
+        "restore",
       );
 
       tl.call(() => {
@@ -335,7 +335,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
       setScrollOffset((prev) =>
-        Math.max(-100, Math.min(100, prev + scrollDelta * 0.1))
+        Math.max(-100, Math.min(100, prev + scrollDelta * 0.1)),
       );
       scrollAccumulator.current += Math.abs(scrollDelta);
 
@@ -410,7 +410,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
             onCardClick?.(i);
           },
         } as CardProps & React.RefAttributes<HTMLDivElement>)
-      : child
+      : child,
   );
 
   return (

@@ -23,7 +23,7 @@ export const Meteors = ({
   className,
 }: MeteorsProps) => {
   const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
-    []
+    [],
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const Meteors = ({
           style={{ ...style }}
           className={cn(
             "pointer-events-none absolute size-0.5 animate-meteor rounded-full bg-[#ffd28b] shadow-[0_0_0_1px_#ffffff10]",
-            className
+            className,
           )}
         >
           {/* Meteor Tail */}
