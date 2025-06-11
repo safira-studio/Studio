@@ -1,3 +1,4 @@
+// In CardSwapDemo.jsx
 "use client";
 import React from "react";
 import { ProjectsDATA } from "./data";
@@ -43,11 +44,11 @@ export default function CardSwapDemo() {
 
   return (
     <section
-      className="w-full border border-teal-700 rounded-3xl px-10 overflow-clip relative flex flex-col lg:flex-row"
+      className="w-full border border-teal-700 rounded-3xl px-6 md:px-10 relative flex flex-col lg:flex-row overflow-clip "
       ref={container}
     >
-      <div className="flex flex-col min-h-screen md:w-1/2">
-        <div className="w-full md:sticky md:top-0 md:h-screen flex flex-col justify-center p-6 lg:p-12 space-y-6">
+      <div className="w-full lg:w-1/2 lg:h-screen sticky top-4 z-30  backdrop-blur-sm rounded-xl p-6 space-y-6 lg:p-12 ">
+        <div className="flex flex-col justify-center items-center h-full">
           <motion.div
             key={activeCard}
             initial={{ opacity: 0, y: 20 }}
@@ -80,8 +81,8 @@ export default function CardSwapDemo() {
         </div>
       </div>
 
-      {/* Cards Section - Mobile: below text, Desktop: right side */}
-      <div className="w-full lg:w-1/2 relative">
+      {/* Cards Section */}
+      <div className="w-full lg:w-1/2 relative mt-6">
         {ProjectsDATA.map((project, i) => {
           return (
             <Card
