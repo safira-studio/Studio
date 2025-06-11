@@ -15,7 +15,25 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-      <CardSwapDemo />
+      <div className="w-full relative">
+        <div
+          aria-hidden="true"
+          className="absolute right-[90%] inset-y-0  bg-gradient-to-l from-black/50  via-black/80 to-black z-20 w-[500px] backdrop-blur-sm"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, black 80%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute left-[90%] inset-y-0  bg-gradient-to-r from-black/50  via-black/80 to-black z-20 w-[500px] backdrop-blur-sm"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to left, black 80%, transparent 100%)",
+          }}
+        />
+        <CardSwapDemo />
+      </div>
       <ProfileCard
         name="Javi A. Torres"
         title="Software Engineer"

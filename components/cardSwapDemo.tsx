@@ -44,7 +44,7 @@ export default function CardSwapDemo() {
 
   return (
     <section
-      className="w-full border border-teal-700 rounded-3xl px-6 md:px-10 relative flex flex-col lg:flex-row overflow-clip "
+      className="w-full rounded-3xl px-6 md:px-10 relative flex flex-col lg:flex-row overflow-visible"
       ref={container}
     >
       <div className="w-full lg:w-1/2 lg:h-screen sticky top-4 z-30  backdrop-blur-sm rounded-xl p-6 space-y-6 lg:p-12 ">
