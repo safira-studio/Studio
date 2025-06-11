@@ -1,5 +1,6 @@
 import { BentoDemo } from "@/components/BentoDemo";
 import Hero from "@/components/Hero";
+import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import CardSwapDemo from "@/components/cardSwapDemo";
 
 export default function Home() {
@@ -15,6 +16,16 @@ export default function Home() {
         <BentoDemo />
       </section>
       <CardSwapDemo />
+      <ProfileCard
+        name="Javi A. Torres"
+        title="Software Engineer"
+        handle="javicodes"
+        status="Online"
+        contactText="Contact Me"
+        avatarUrl="/path/to/avatar.jpg"
+        showUserInfo={false}
+        enableTilt={false}
+      />
     </main>
   );
 }
