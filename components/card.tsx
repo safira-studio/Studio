@@ -49,7 +49,7 @@ const Card = ({
       ref={container}
       className="h-[100vh] flex flex-col lg:flex-row items-center justify-center sticky top-0 z-10"
     >
-      <div>
+      <div className="top-1/2 absolute lg:top-1/3 ">
         <motion.div
           style={{
             scale,

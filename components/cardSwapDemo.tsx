@@ -44,10 +44,26 @@ export default function CardSwapDemo() {
 
   return (
     <section
-      className="w-full rounded-3xl px-6 md:px-10 relative flex flex-col lg:flex-row overflow-visible"
+      className="max-w-7xl rounded-3xl px-6 md:px-10 relative flex flex-col lg:flex-row overflow-visible"
       ref={container}
     >
-      <div className="w-full lg:w-1/2 lg:h-screen sticky top-4 z-30  backdrop-blur-sm rounded-xl p-6 space-y-6 lg:p-12 ">
+      <div
+        aria-hidden="true"
+        className="absolute right-[90%] inset-y-0  bg-gradient-to-l from-black/50  via-black/80 to-black z-20 w-[500px] backdrop-blur-sm"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to right, black 80%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute left-[90%] inset-y-0  bg-gradient-to-l from-black  via-black/80 to-black/20 z-20 w-[300px] backdrop-blur-sm"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to left, black 70%, transparent 100%)",
+        }}
+      />
+      <div className="w-full lg:w-1/2 lg:h-screen sticky top-4 z-30  backdrop-blur-sm rounded-xl pt-6 p-3 md:p-6 space-y-6 lg:p-12 ">
         <div className="flex flex-col justify-center items-center h-full">
           <motion.div
             key={activeCard}
@@ -56,7 +72,7 @@ export default function CardSwapDemo() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-4"
           >
-            <h2 className="text-2xl lg:text-3xl font-bold text-white">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
               {ProjectsDATA[activeCard]?.title}
             </h2>
             <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
