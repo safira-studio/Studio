@@ -17,7 +17,7 @@ export default function CardSwapDemo() {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardsBreakpoints = ProjectsDATA.map(
-      (_, index) => index / ProjectsDATA.length
+      (_, index) => (index + 0.5) / ProjectsDATA.length
     );
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
