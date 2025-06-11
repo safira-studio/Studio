@@ -49,10 +49,6 @@ const Card = ({
       ref={container}
       className="h-[90vh] flex flex-col lg:flex-row items-center justify-center sticky top-0 z-10"
     >
-      <div className="w-1/2">
-        <h1 className="text-4xl">Card stacks have never looked so good</h1>
-        <p>Just look at it go!</p>
-      </div>
       <div>
         <motion.div
           style={{
