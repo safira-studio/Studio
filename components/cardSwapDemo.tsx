@@ -64,9 +64,9 @@ export default function CardSwapDemo() {
             </p>
           </motion.div>
           <div className="flex items-center gap-4 pt-4">
-            <div className="text-sm text-gray-400">
+            {/* <div className="text-sm text-gray-400">
               {activeCard + 1} / {ProjectsDATA.length}
-            </div>
+            </div> */}
             <div className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden">
               <motion.div
                 className="h-full bg-teal-400 rounded-full"
@@ -74,7 +74,7 @@ export default function CardSwapDemo() {
                 animate={{
                   width: `${((activeCard + 1) / ProjectsDATA.length) * 100}%`,
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
               />
             </div>
           </div>
