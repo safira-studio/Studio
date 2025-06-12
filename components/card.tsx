@@ -61,10 +61,10 @@ const Card = ({
           }}
           className="relative w-[500px] h-[400px] rounded-medium overflow-hidden shadow-2xl border border-white"
         >
-          <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative">
+          <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative border-b border-white">
             <>
-              {/* Gradient */}
-              <div
+              {/* Gradient from Bottom to top*/}
+              {/* <div
                 className="absolute top-0 left-0 w-full h-full -z-10"
                 style={{
                   background:
@@ -76,6 +76,21 @@ const Card = ({
                 style={{
                   background:
                     "conic-gradient(from 260deg at 100% 100%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                }}
+              /> */}
+              {/* Gradient from top to bottom*/}
+              <div
+                className="absolute top-0 left-0 w-full h-full -z-10"
+                style={{
+                  background:
+                    "conic-gradient(from 80deg at 0% 0%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                }}
+              />
+              <div
+                className="absolute top-0 right-0 w-full h-full -z-10"
+                style={{
+                  background:
+                    "conic-gradient(from 266deg at 100% 0%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
                 }}
               />
             </>
