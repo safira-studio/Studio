@@ -16,6 +16,8 @@ interface CardProps {
   tag?: string;
   icon?: React.ReactNode;
   totalCards: number;
+  topGradient?: boolean;
+  gradientAngle?: number;
 }
 
 const Card = ({
@@ -29,6 +31,8 @@ const Card = ({
   tag = "Customizable",
   icon = <Settings2 />,
   totalCards,
+  topGradient = false,
+  gradientAngle = 0,
 }: CardProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -63,34 +67,30 @@ const Card = ({
         >
           <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative border-b border-white">
             <>
-              {/* Gradient from Bottom to top*/}
-              {/* <div
+              <div
                 className="absolute top-0 left-0 w-full h-full -z-10"
                 style={{
-                  background:
-                    "conic-gradient(from 85deg at 0% 100%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                  background: `conic-gradient(
+        from ${topGradient ? `80deg at 0% 0%` : "85deg at 0% 100%"},
+        transparent 0%,
+        #FFD086BD 1%,
+        #FFFFFFFF 2%,
+        #FFD086BD 3%,
+        transparent 4%
+      )`,
                 }}
               />
               <div
                 className="absolute top-0 right-0 w-full h-full -z-10"
                 style={{
-                  background:
-                    "conic-gradient(from 260deg at 100% 100%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
-                }}
-              /> */}
-              {/* Gradient from top to bottom*/}
-              <div
-                className="absolute top-0 left-0 w-full h-full -z-10"
-                style={{
-                  background:
-                    "conic-gradient(from 80deg at 0% 0%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
-                }}
-              />
-              <div
-                className="absolute top-0 right-0 w-full h-full -z-10"
-                style={{
-                  background:
-                    "conic-gradient(from 266deg at 100% 0%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                  background: `conic-gradient(
+        from ${topGradient ? `266deg at 100% 0%` : "260deg at 100% 100%"},
+        transparent 0%,
+        #FFD086BD 1%,
+        #FFFFFFFF 2%,
+        #FFD086BD 3%,
+        transparent 4%
+      )`,
                 }}
               />
             </>

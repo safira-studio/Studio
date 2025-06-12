@@ -15,7 +15,23 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-      <div className="w-full relative overflow-clip">
+      <div className="w-full max-w-7xl relative overflow-clip">
+        <div
+          aria-hidden="true"
+          className="absolute left-[0%] inset-y-0  bg-gradient-to-l from-black/50  via-black/80 to-black z-20 w-[200px] backdrop-blur-sm"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, black 80%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute right-[0%] inset-y-0  bg-gradient-to-l from-black  via-black/80 to-black/20 z-20 w-[200px] backdrop-blur-sm"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to left, black 70%, transparent 100%)",
+          }}
+        />
         <CardSwapDemo />
       </div>
       {/* <ProfileCard
