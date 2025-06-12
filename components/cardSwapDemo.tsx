@@ -74,9 +74,17 @@ export default function CardSwapDemo() {
               text={ProjectsDATA[activeCard]?.title}
               delay={150}
               animateBy="sentences"
-              stepDuration={0.5}
+              stepDuration={0.4}
               direction={scrollDirection}
               className="text-xl md:text-2xl lg:text-3xl font-bold text-white"
+            />
+            <BlurText
+              text={ProjectsDATA[activeCard]?.description.slice(0, 150)}
+              delay={200}
+              animateBy="sentences"
+              stepDuration={0.35}
+              direction={scrollDirection}
+              className="text-sm md:text-base font-thin text-gray-400"
             />
           </motion.div>
           <div className="flex items-center gap-4 pt-4">
@@ -104,6 +112,7 @@ export default function CardSwapDemo() {
               {...project}
               progress={scrollYProgress}
               totalCards={ProjectsDATA.length}
+              tag={project.title}
             />
           );
         })}

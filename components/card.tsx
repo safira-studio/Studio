@@ -63,15 +63,15 @@ const Card = ({
             skewY: 6,
             transformStyle: "preserve-3d",
           }}
-          className="relative w-[500px] h-[400px] rounded-medium overflow-hidden shadow-2xl border border-white"
+          className="relative w-80 h-72 md:w-[400px] md:h-[320px] lg:w-[500px] lg:h-[400px] rounded-medium overflow-hidden shadow-2xl border border-white bg-black"
         >
-          <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative border-b border-white">
+          <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative border-b border-white ">
             <>
               <div
                 className="absolute top-0 left-0 w-full h-full -z-10"
                 style={{
                   background: `conic-gradient(
-        from ${topGradient ? `80deg at 0% 0%` : "85deg at 0% 100%"},
+        from ${topGradient ? `80deg at 0% 0%` : "86deg at 0% 100%"},
         transparent 0%,
         #FFD086BD 1%,
         #FFFFFFFF 2%,
@@ -84,7 +84,7 @@ const Card = ({
                 className="absolute top-0 right-0 w-full h-full -z-10"
                 style={{
                   background: `conic-gradient(
-        from ${topGradient ? `266deg at 100% 0%` : "260deg at 100% 100%"},
+        from ${topGradient ? `266deg at 100% 0%` : "259deg at 100% 100%"},
         transparent 0%,
         #FFD086BD 1%,
         #FFFFFFFF 2%,

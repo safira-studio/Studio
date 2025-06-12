@@ -18,7 +18,7 @@ export default function Home() {
       <div className="w-full max-w-7xl relative overflow-clip">
         <div
           aria-hidden="true"
-          className="absolute left-[0%] inset-y-0  bg-gradient-to-l from-black/50  via-black/80 to-black z-20 w-[200px] backdrop-blur-sm"
+          className="absolute left-[0%] inset-y-0  bg-gradient-to-l from-transparent  via-black/80 to-black z-20  md:w-40 lg:w-[200px] backdrop-blur-sm"
           style={{
             WebkitMaskImage:
               "linear-gradient(to right, black 80%, transparent 100%)",
@@ -26,7 +26,7 @@ export default function Home() {
         />
         <div
           aria-hidden="true"
-          className="absolute right-[0%] inset-y-0  bg-gradient-to-l from-black  via-black/80 to-transparent z-20 w-[200px] backdrop-blur-sm"
+          className="absolute right-[0%] inset-y-0  bg-gradient-to-l from-black/80 md:from-black  via-black/70 to-transparent z-20 w-16 md:w-40 lg:w-[200px] backdrop-blur-sm"
           style={{
             WebkitMaskImage:
               "linear-gradient(to left, black 70%, transparent 100%)",
