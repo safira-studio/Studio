@@ -1,38 +1,38 @@
 "use client";
 import Image from "next/image";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Settings, Settings2 } from "lucide-react";
 
 interface CardProps {
   i: number;
   title: string;
+  subtitle: string;
   description: string;
-  src: string;
   url?: string;
   color: string;
   progress: any;
-  tag?: string;
-  icon?: React.ReactNode;
+  tag: string;
+  icon: React.ReactNode;
+  features: string[];
   totalCards: number;
   topGradient?: boolean;
-  gradientAngle?: number;
 }
 
 const Card = ({
   i,
   title,
+  subtitle,
   description,
-  src,
   url,
   color,
   progress,
-  tag = "Customizable",
-  icon = <Settings2 />,
+  tag,
+  icon,
+  features,
   totalCards,
   topGradient = false,
-  gradientAngle = 0,
 }: CardProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -97,6 +97,45 @@ const Card = ({
 
             {icon}
             <span className="text-gray-300 text-sm font-medium">{tag}</span>
+          </div>
+          {/* Card Content */}
+          <div className="flex flex-col h-full p-4">
+            {/* Main Content */}
+            <div className="flex flex-col flex-grow p-4 space-y-3">
+              <h3 className="text-lg md:text-xl font-bold text-white">
+                {title}
+              </h3>
+              <p className="text-sm md:text-base font-medium text-gray-300">
+                {subtitle}
+              </p>
+              <p className="text-xs md:text-sm text-gray-400 line-clamp-3">
+                {description}
+              </p>
+
+              {/* Features List */}
+              <ul className="space-y-1">
+                {features.map((feature, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-2 text-xs md:text-sm text-gray-300"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-400 rounded-full" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* 
+            {url && (
+              <div className="p-4 border-t border-white/20">
+                <Link
+                  href={url}
+                  className={`text-sm font-medium text-white px-4 py-2 rounded-full bg-gradient-to-r ${color} hover:opacity-90 transition-opacity`}
+                >
+                  Learn More
+                </Link>
+              </div>
+            )} */}
           </div>
         </motion.div>
       </div>

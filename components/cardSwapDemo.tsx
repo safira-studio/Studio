@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ProjectsDATA } from "./data";
+import { ServicesDATA } from "./data";
 import Card from "./card";
 import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
@@ -23,8 +23,8 @@ export default function CardSwapDemo() {
   // Detect scroll direction
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     // Update active card based on scroll position
-    const cardsBreakpoints = ProjectsDATA.map(
-      (_, index) => (index + 0.5) / ProjectsDATA.length
+    const cardsBreakpoints = ServicesDATA.map(
+      (_, index) => (index + 0.3) / ServicesDATA.length
     );
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
@@ -71,7 +71,7 @@ export default function CardSwapDemo() {
             className="space-y-4"
           >
             <BlurText
-              text={ProjectsDATA[activeCard]?.title}
+              text={ServicesDATA[activeCard]?.title}
               delay={150}
               animateBy="sentences"
               stepDuration={0.4}
@@ -79,7 +79,7 @@ export default function CardSwapDemo() {
               className="text-xl md:text-2xl lg:text-3xl font-bold text-white"
             />
             <BlurText
-              text={ProjectsDATA[activeCard]?.description.slice(0, 150)}
+              text={ServicesDATA[activeCard]?.subtitle}
               delay={200}
               animateBy="sentences"
               stepDuration={0.35}
@@ -93,7 +93,7 @@ export default function CardSwapDemo() {
                 className="h-full bg-teal-400 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{
-                  width: `${((activeCard + 1) / ProjectsDATA.length) * 100}%`,
+                  width: `${((activeCard + 1) / ServicesDATA.length) * 100}%`,
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               />
@@ -104,14 +104,14 @@ export default function CardSwapDemo() {
 
       {/* Cards Section */}
       <div className="w-full lg:w-1/2 relative mt-6">
-        {ProjectsDATA.map((project, i) => {
+        {ServicesDATA.map((project, i) => {
           return (
             <Card
               key={`p_${i}`}
               i={i}
               {...project}
               progress={scrollYProgress}
-              totalCards={ProjectsDATA.length}
+              totalCards={ServicesDATA.length}
               tag={project.title}
             />
           );
