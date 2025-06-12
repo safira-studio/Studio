@@ -90,6 +90,7 @@ export default function CardSwapDemo() {
               text={ProjectsDATA[activeCard]?.title}
               delay={150}
               animateBy="sentences"
+              stepDuration={0.5}
               direction={scrollDirection}
               className="text-xl md:text-2xl lg:text-3xl font-bold text-white"
             />
