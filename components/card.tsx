@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import { Settings, Settings2 } from "lucide-react";
 
 interface CardProps {
   i: number;
@@ -26,7 +27,7 @@ const Card = ({
   color,
   progress,
   tag = "Customizable",
-  icon,
+  icon = <Settings2 />,
   totalCards,
 }: CardProps) => {
   const container = useRef(null);
@@ -58,67 +59,29 @@ const Card = ({
             skewY: 6,
             transformStyle: "preserve-3d",
           }}
-          className="relative w-[500px] h-[400px] rounded-3xl overflow-hidden shadow-2xl"
+          className="relative w-[500px] h-[400px] rounded-medium overflow-hidden shadow-2xl border border-white"
         >
-          {/* Gradient Border */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-r ${getBorderGradient(i)} rounded-3xl p-[2px]`}
-          >
-            <div className="w-full h-full bg-gray-900 rounded-3xl">
-              {/* Top Tab/Header */}
-              <div className="flex items-center gap-2 px-5 py-3 bg-gray-800/50 text-white text-sm border-b border-gray-700/50 rounded-t-3xl">
-                {getHeaderIcon(i)}
-                <span className="font-semibold">{getTagText(i)}</span>
-              </div>
+          <div className="flex items-center justify-start gap-2 px-3 w-full h-10 shadow-md relative">
+            <>
+              {/* Gradient */}
+              <div
+                className="absolute top-0 left-0 w-full h-full -z-10"
+                style={{
+                  background:
+                    "conic-gradient(from 85deg at 0% 100%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                }}
+              />
+              <div
+                className="absolute top-0 right-0 w-full h-full -z-10"
+                style={{
+                  background:
+                    "conic-gradient(from 260deg at 100% 100%, transparent 0%, #FFD086BD 1%, #FFFFFFFF 2%, #FFD086BD 3%, transparent 4%)",
+                }}
+              />
+            </>
 
-              {/* Body */}
-              <div className="flex flex-col md:flex-row gap-6 h-full p-6">
-                {/* Description Section */}
-                <div className="w-full md:w-[45%] flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">{title}</h2>
-                    <p className="mt-4 text-gray-300 leading-relaxed text-sm">
-                      {description}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 mt-6">
-                    <Link
-                      href={url ?? "/"}
-                      className="text-sm text-green-400 underline hover:text-green-500 transition"
-                    >
-                      See more
-                    </Link>
-                    <svg
-                      width="20"
-                      height="10"
-                      viewBox="0 0 22 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Image Section */}
-                <div className="relative w-full md:w-[55%] rounded-2xl overflow-hidden">
-                  <motion.div
-                    className="w-full h-full"
-                    style={{ scale: imageScale }}
-                  >
-                    <Image
-                      src={`/images/${src}`}
-                      alt="image"
-                      fill
-                      className="object-cover"
-                    />
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+            {icon}
+            <span className="text-gray-300 text-sm font-medium">{tag}</span>
           </div>
         </motion.div>
       </div>
