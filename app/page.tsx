@@ -26,7 +26,7 @@ export default function Home() {
         />
         <div
           aria-hidden="true"
-          className="absolute right-[0%] inset-y-0  bg-gradient-to-l from-black  via-black/80 to-black/20 z-20 w-[200px] backdrop-blur-sm"
+          className="absolute right-[0%] inset-y-0  bg-gradient-to-l from-black  via-black/80 to-transparent z-20 w-[200px] backdrop-blur-sm"
           style={{
             WebkitMaskImage:
               "linear-gradient(to left, black 70%, transparent 100%)",
