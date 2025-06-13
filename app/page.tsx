@@ -1,4 +1,5 @@
 import { BentoDemo } from "@/components/BentoDemo";
+import { FloatingDockDemo } from "@/components/FloatingDock";
 import Hero from "@/components/Hero";
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import CardSwapDemo from "@/components/cardSwapDemo";
@@ -44,6 +45,7 @@ export default function Home() {
         showUserInfo={false}
         enableTilt={false}
       /> */}
+      <FloatingDockDemo />
     </main>
   );
 }
