@@ -1,25 +1,19 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
+import { Home, Replace, Terminal, X } from "lucide-react";
+import { GithubIcon } from "./icons";
 
 export function FloatingDockDemo() {
   const links = [
     {
       title: "Home",
-      icon: <IconHome className="h-full w-full text-white" />,
+      icon: <Home className="h-full w-full text-white" />,
       href: "#",
     },
 
     {
       title: "Products",
-      icon: <IconTerminal2 className="h-full w-full text-white" />,
+      icon: <Terminal className="h-full w-full text-white" />,
       href: "#",
     },
     // {
@@ -41,18 +35,18 @@ export function FloatingDockDemo() {
     // },
     {
       title: "Changelog",
-      icon: <IconExchange className="h-full w-full  text-white" />,
+      icon: <Replace className="h-full w-full  text-white" />,
       href: "#",
     },
 
     {
       title: "Twitter",
-      icon: <IconBrandX className="h-full w-full  text-white" />,
+      icon: <X className="h-full w-full  text-white" />,
       href: "#",
     },
     {
       title: "GitHub",
-      icon: <IconBrandGithub className="h-full w-full  text-white" />,
+      icon: <GithubIcon className="h-full w-full  text-white" />,
       href: "#",
     },
   ];
