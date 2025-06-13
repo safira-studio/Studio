@@ -9,11 +9,11 @@ export default function Hero() {
     <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
       <Meteors number={30} />
       <div className="relative h-screen w-full overflow-hidden">
-        <div className="font-geist-mono absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit">
+        <div className="font-test absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit">
           <MaskContainer
             revealText={
               <motion.span
-                className="pointer-events-none font-geist-mono mx-auto flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent"
+                className="pointer-events-none font-test mx-auto flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent"
                 initial={{ "--x": "-100%" } as any}
                 animate={{ "--x": "125%" } as any}
                 transition={{
@@ -50,7 +50,7 @@ export default function Hero() {
             }
             className="w-full h-full overflow-visible"
           >
-            <span className="pointer-events-none font-outline font-geist-mono mx-auto  flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
+            <span className="pointer-events-none font-outline font-test mx-auto  flex flex-col whitespace-pre-wrap text-center text-[16rem] font-bold leading-none text-transparent ">
               <span className="">
                 <span className="font-outline text-[20rem] ">S</span>
                 afira

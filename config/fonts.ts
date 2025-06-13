@@ -1,7 +1,7 @@
 import {
   Fira_Code as FontMono,
   Inter as FontSans,
-  Offside as Test,
+  Iceberg as Test,
 } from "next/font/google";
 
 export const fontSans = FontSans({
@@ -12,7 +12,7 @@ export const fontSans = FontSans({
 export const test = Test({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-orbitron",
+  variable: "--font-test",
 });
 
 export const fontMono = FontMono({
