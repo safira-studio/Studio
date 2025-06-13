@@ -5,14 +5,16 @@ import { MaskContainer } from "./ui/svg-mask-effect";
 import { motion } from "motion/react";
 
 export default function Hero() {
-  const sSize = 20;
+  const sSize = 28;
   const restSize = 16;
+  const sFont = "test";
+  const restFont = "geist-sans";
   return (
     <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
       <Meteors number={30} />
       <div className="relative h-screen w-full overflow-hidden">
         <div
-          className={`font-test text-[${restSize}rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit`}
+          className={`font-${restFont} text-[${restSize}rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-fit`}
         >
           <MaskContainer
             revealText={
@@ -32,7 +34,7 @@ export default function Hero() {
                 {/* Base text with gradient */}
                 <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text text-transparent">
                   <span
-                    className={`text-[${sSize}rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text`}
+                    className={` font-${sFont} text-[${sSize}rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text`}
                   >
                     S
                   </span>
@@ -49,7 +51,7 @@ export default function Hero() {
                       "linear-gradient(90deg, transparent 0%, transparent calc(var(--x) - 5%), white calc(var(--x) - 10%), white calc(var(--x) + 10%), transparent calc(var(--x) + 5%), transparent 100%)",
                   }}
                 >
-                  <span className={`text-[${sSize}rem]`}>S</span>
+                  <span className={`font-${sFont} text-[${sSize}rem]`}>S</span>
                   afira
                 </span>
               </motion.span>
@@ -60,7 +62,7 @@ export default function Hero() {
               className={`text-[${restSize}rem] pointer-events-none font-outline mx-auto  flex flex-col whitespace-pre-wrap text-center font-bold leading-none text-transparent`}
             >
               <span className="">
-                <span className={`text-[${sSize}rem]`}>S</span>
+                <span className={`font-${sFont} text-[${sSize}rem]`}>S</span>
                 afira
               </span>
             </span>
