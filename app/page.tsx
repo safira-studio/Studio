@@ -1,16 +1,17 @@
 import { BentoDemo } from "@/components/BentoDemo";
 import { FloatingDockDemo } from "@/components/FloatingDock";
 import Hero from "@/components/Hero";
-import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import CardSwapDemo from "@/components/cardSwapDemo";
+import { HeroParallaxDemo } from "@/components/heroDemo";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center gap-4">
       {/* Section 1: Hero full screen */}
       <section className="h-screen w-full">
-        <Hero />
+        <Hero />{" "}
       </section>
+      <HeroParallaxDemo />
 
       {/* Section 2: Bento cards */}
       <section className="w-full">

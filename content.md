@@ -10,7 +10,7 @@ Visual: A sleek, modern design with a background image or animation showcasing a
 Additional Elements: Trust signals like "Trusted by Startups & Businesses" or client logos (if applicable).
 
 2. About SAFIRA STUDIO
-   Purpose: Build trust by introducing the business and its expertise.Content:
+   Purpose: Build trust by introducing the business and its expertise:
 
 Title: "Why Choose SAFIRA STUDIO?"(SEO Keywords: professional website developer, digital solutions expert)  
 Description: "SAFIRA STUDIO is your trusted partner for custom website development, digital marketing, AI-powered automation, and robust security solutions. We craft tailored, brand-aligned digital experiences that drive growth for businesses, startups, and personal projects."(SEO Keywords: custom website development, digital marketing, AI automation, security solutions)  
