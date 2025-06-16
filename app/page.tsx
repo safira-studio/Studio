@@ -2,6 +2,7 @@ import { BentoDemo } from "@/components/BentoDemo";
 import { FloatingDockDemo } from "@/components/FloatingDock";
 import Hero from "@/components/Hero";
 import CardSwapDemo from "@/components/cardSwapDemo";
+import { FeaturesSectionDemo } from "@/components/featureSection";
 import { HeroParallaxDemo } from "@/components/heroDemo";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
+      <FeaturesSectionDemo />
       <div className="w-full max-w-7xl relative overflow-clip">
         <div
           aria-hidden="true"
