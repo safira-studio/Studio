@@ -5,7 +5,7 @@ import { MaskContainer } from "./ui/svg-mask-effect";
 import { motion } from "motion/react";
 
 export default function Hero() {
-  const sFont = "test";
+  const sFont = "geist-mono";
   const restFont = "geist-sans";
   return (
     <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
@@ -32,7 +32,7 @@ export default function Hero() {
                 {/* Base text with gradient */}
                 <span className="bg-gradient-to-t from-black to-gray-300/80 bg-clip-text text-transparent">
                   <span
-                    className={` font-${sFont} text-[20rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text`}
+                    className={`font-${sFont} text-[20rem] bg-gradient-to-b from-black to-gray-300/80 bg-clip-text`}
                   >
                     S
                   </span>
