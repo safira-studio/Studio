@@ -6,6 +6,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import WebsiteContent from "./website";
+import Marketing from "./marketing";
 
 export const ServicesDATA = [
   {
@@ -33,6 +34,7 @@ export const ServicesDATA = [
     url: "/services/digital-marketing",
     color: "from-red-500 via-orange-500 to-yellow-400",
     icon: <TrendingUp strokeWidth={1.5} size={16} />,
+    content: <Marketing />,
     features: [
       "Professional PPC campaign setups",
       "Engaging social media content and visuals",

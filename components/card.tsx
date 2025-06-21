@@ -105,7 +105,7 @@ const Card = ({
             <span className="text-gray-300 text-sm font-medium">{tag}</span>
           </div>
           {/* Card Content */}
-          <div className="flex flex-col h-full p-4">{content && content}</div>
+          <div className="flex flex-col h-full">{content && content}</div>
         </motion.div>
       </div>
     </div>
