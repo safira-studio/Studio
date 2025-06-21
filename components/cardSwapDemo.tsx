@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ServicesDATA } from "./data";
+import { ServicesDATA } from "./services/data";
 import Card from "./card";
 import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
@@ -79,7 +79,7 @@ export default function CardSwapDemo() {
               className="text-xl md:text-2xl lg:text-3xl font-bold text-white"
             />
             <BlurText
-              text={ServicesDATA[activeCard]?.subtitle}
+              text={ServicesDATA[activeCard]?.description}
               delay={200}
               animateBy="sentences"
               stepDuration={0.35}

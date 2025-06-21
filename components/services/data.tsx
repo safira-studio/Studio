@@ -5,17 +5,19 @@ import {
   ShieldCheck,
   TrendingUp,
 } from "lucide-react";
+import WebsiteContent from "./website";
 
 export const ServicesDATA = [
   {
     title: "Website Development",
     subtitle: "Tailored websites for any purpose",
     description:
-      "I design stunning, goal-oriented websites for businesses, startups, e-commerce, portfolios, or blogs, ensuring they reflect your brand and stand out with elegant or bold designs.",
+      "we design stunning, goal-oriented websites for businesses, startups, e-commerce, portfolios, or blogs, ensuring they reflect your brand and stand out with elegant or bold designs.",
     tag: "Customizable",
     url: "/services/website-development",
     color: "from-blue-500 via-purple-500 to-green-400",
     icon: <Globe strokeWidth={1.5} size={16} />,
+    content: <WebsiteContent />,
     features: [
       "Responsive design for all devices",
       "Brand-aligned visuals and layouts",
