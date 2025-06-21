@@ -1,6 +1,7 @@
 import { CpuIcon, GlobeIcon, ShieldCheckIcon, RocketIcon } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { Terminal, TypingAnimation } from "@/components/magicui/terminal"; // adjust path if needed
+import { CardStack } from "./ui/card-stack";
 
 export function BentoDemo() {
   return (
@@ -149,7 +150,39 @@ export function BentoDemo() {
       <BentoCard
         Icon={RocketIcon}
         name="Customizable Solutions"
-        description="Tailor our AI services to your specific needs with flexible customization options."
+        description={
+          <>
+            <p className="mb-4 text-sm text-neutral-400 pb-7">
+              Tailor our AI services to your specific needs with flexible
+              customization options.
+            </p>
+            <CardStack
+              items={[
+                {
+                  id: 1,
+                  name: "Client A",
+                  designation: "E-commerce AI Integration",
+                  content:
+                    "Deployed AI chatbots and recommender systems for Shopify.",
+                },
+                {
+                  id: 2,
+                  name: "Client B",
+                  designation: "Healthcare AI Tools",
+                  content:
+                    "Automated report generation and diagnostics workflows.",
+                },
+                {
+                  id: 3,
+                  name: "Client C",
+                  designation: "Web3 & Security",
+                  content:
+                    "Implemented smart contract audits and SOC monitoring.",
+                },
+              ]}
+            />
+          </>
+        }
         href="#"
         cta="Customize"
         className="row-start-2 col-start-1 col-span-2"
