@@ -18,7 +18,7 @@ export default function Home() {
       <section className="w-full">
         <BentoDemo />
       </section>
-      <FeaturesSectionDemo />
+      {/* <FeaturesSectionDemo /> */}
       <div className="w-full max-w-7xl relative overflow-clip">
         <div
           aria-hidden="true"
