@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import WebsiteContent from "./website";
 import Marketing from "./marketing";
+import { AnimatedBeamDemo } from "./ai";
 
 export const ServicesDATA = [
   {
@@ -50,6 +51,7 @@ export const ServicesDATA = [
     url: "/services/ai-solutions",
     color: "from-purple-500 via-indigo-500 to-blue-400",
     icon: <BrainCircuit strokeWidth={1.5} size={16} />,
+    content: <AnimatedBeamDemo />,
     features: [
       "Intelligent chatbots for various use cases",
       "End-to-end business process automation",
